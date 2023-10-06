@@ -10,6 +10,7 @@ import { ComputedPropsAndState } from "./showcases/mobx-react/ComputedPropsAndSt
 import { ShowError } from "./components/ShowError";
 import { ChildWrapper } from "./showcases/mobx-react/ChildWrapper";
 import { GithubLink } from "./components/GithubLink";
+import { Solution } from "./components/Solution";
 
 configure({
   enforceActions: "never",
@@ -34,10 +35,32 @@ function App() {
             <MobxReact />
           </ShowMoreChildren>
         </li>
+
+        <li>
+          <ShowMoreChildren name={"Typescript"}>
+            <Typescript />
+          </ShowMoreChildren>
+        </li>
       </ul>
     </div>
   );
 }
+
+const Typescript = () => {
+  return (
+    <ul>
+      <li>
+        <GithubLink link={""} />
+        <h3>Declare</h3>
+        <Solution
+          link={
+            "https://www.typescriptlang.org/play?useDefineForClassFields=true&experimentalDecorators=true#code/MYewdgzgLgBAlmAVgU2LAvDAFABwE4hQgBcMAhmAJ4A0MYZAtsqQAoE7J5SUDSylAShjoAfDADeAKBgwA8gCMUaAHQATZADMEyNiA5dKuAkVr0mtKTJkBzZFCxDLVmXjsBXPGBgBGAAwBuaSsAX2og4IFA4MDJSWAAGzIICBgAEVRE1wkggAEEJSggnDd5eLhgGHUEsizXMlVweMoYCE4AN3LmcioYmVBIKDw3NBA8BwlgyUm48Gg0gFEAYQAZAEEAJXmAfQRoCmBkYTpkAHc0jJrkBxj+iBB45GV4kGssVKW1zZ2B-cfWvA6B0ikiAA"
+          }
+        />
+      </li>
+    </ul>
+  );
+};
 
 const MobxReact = () => {
   const [counter] = useState(new Counter());
