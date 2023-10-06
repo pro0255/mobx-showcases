@@ -6,7 +6,6 @@ type Props = {
 };
 
 export function fallbackRender({ error }: any) {
-  console.error(error);
   return (
     <div role="alert">
       <p>Something went wrong:</p>

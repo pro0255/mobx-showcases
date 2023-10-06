@@ -38,7 +38,7 @@ export class OverrideMobx extends MakeObservableParent {
   };
 }
 
-const OverrideView = () => {
+export const View = () => {
   return (
     <ShowError>
       <li key={OverrideMobx.showcaseName}>
@@ -47,5 +47,3 @@ const OverrideView = () => {
     </ShowError>
   );
 };
-
-export default OverrideView;

@@ -49,7 +49,7 @@ type ObserverViewProps = {
   instance: ImageType;
 };
 
-const ObserverView = observer(({ instance }: ObserverViewProps) => {
+export const ObserverView = observer(({ instance }: ObserverViewProps) => {
   return (
     <div>
       This is value {instance.value}

@@ -10,10 +10,12 @@ export const LazyComponent = React.memo(({ path }: Props) => {
   useEffect(() => {
     async function load() {
       try {
-        const Component = await import(`../${path}`);
+        const { View } = await import(`../${path}`);
+
+        console.log(View);
         setState({
           type: "OK",
-          data: Component,
+          data: View,
         });
       } catch (e) {
         setState({
@@ -24,16 +26,19 @@ export const LazyComponent = React.memo(({ path }: Props) => {
     }
 
     load();
-  }, [path]);
-  console.log(state);
+  }, []);
 
   if (state === null) {
     return <div>Loading...</div>;
   }
 
   if (state.type === "ERROR") {
-    return fallbackRender({ error: state.data });
+    return <>{fallbackRender({ error: state.data })}</>;
   }
 
-  return <ShowError>{state.data}</ShowError>;
+  return (
+    <ShowError>
+      <state.data />
+    </ShowError>
+  );
 });
