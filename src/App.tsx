@@ -1,10 +1,25 @@
-import React from 'react';
+import React from "react";
+import { ShowMore } from "./components/ShowMore";
+import { MakeObservableError } from "./showcases/mobx/MakeObservableError";
+import { configure } from "mobx";
+
+configure({
+  enforceActions: "never",
+});
 
 function App() {
   return (
-      <div>
-        Hello
-      </div>
+    <div>
+      <h1>Showcases</h1>
+      <ul>
+        <li>
+          <ShowMore
+            image={MakeObservableError}
+            name={MakeObservableError.showcaseName}
+          />
+        </li>
+      </ul>
+    </div>
   );
 }
 
