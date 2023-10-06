@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ImageType } from "../types";
 import { observer } from "mobx-react";
+import { ShowError } from "./ShowError";
 
 type Props = {
   name: string;
@@ -17,7 +18,11 @@ export const ShowMore = ({ image, name }: Props) => {
         {isVisible ? "Hide" : "Show"}
       </button>
 
-      {isVisible && <View image={image} />}
+      {isVisible && (
+        <ShowError>
+          <View image={image} />
+        </ShowError>
+      )}
     </div>
   );
 };
