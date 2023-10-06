@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ImageType } from "../types";
 import { observer } from "mobx-react";
 import { ShowError } from "./ShowError";
+import { GithubLink } from "./GithubLink";
 
 type Props = {
   name: string;
@@ -13,7 +14,10 @@ export const ShowMore = ({ image, name }: Props) => {
 
   return (
     <div>
+      {image.link && <GithubLink link={image.link} />}
+
       <h3>{name}</h3>
+
       <button onClick={() => setIsVisible((oldState) => !oldState)}>
         {isVisible ? "Hide" : "Show"}
       </button>

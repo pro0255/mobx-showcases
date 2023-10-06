@@ -28,6 +28,9 @@ export class OverrideMobx extends MakeObservableParent {
   @observable
   public addToValue = 2;
 
+  public static link =
+    "https://github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx/OverrideMobx.tsx";
+
   constructor() {
     super();
     makeObservable(this);

@@ -7,6 +7,9 @@ export class MakeObservable implements ImageType {
 
   public value: number = 1;
 
+  public static link =
+    "https://github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx/MakeObservable.tsx";
+
   action = () => {
     console.log(MakeObservable.prototype);
     this.value++;

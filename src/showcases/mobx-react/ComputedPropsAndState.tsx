@@ -3,6 +3,7 @@ import { computed } from "mobx";
 import React from "react";
 import { Counter } from "./Counter";
 import { ObserverView } from "../../components/ShowMore";
+import { Solution } from "../../components/Solution";
 
 // https://github.com/mobxjs/mobx/blob/main/packages/mobx-react/README.md#note-on-using-props-and-state-in-derivations
 
@@ -20,12 +21,25 @@ export class ComputedPropsAndState extends React.Component<Props> {
 
   render() {
     return (
-      <ObserverView
-        instance={{
-          value: this.doubleValue,
-          action: this.props.counter.action,
-        }}
-      />
+      <div>
+        <Solution
+          link={
+            "https://github.com/mobxjs/mobx/blob/main/packages/mobx-react/README.md#note-on-using-props-and-state-in-derivations:~:text=Note%20on%20using,this.props."
+          }
+        />
+        <div
+          style={{
+            marginTop: "10px",
+          }}
+        >
+          <ObserverView
+            instance={{
+              value: this.doubleValue,
+              action: this.props.counter.action,
+            }}
+          />
+        </div>
+      </div>
     );
   }
 }

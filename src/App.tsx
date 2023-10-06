@@ -9,6 +9,7 @@ import { Counter } from "./showcases/mobx-react/Counter";
 import { ComputedPropsAndState } from "./showcases/mobx-react/ComputedPropsAndState";
 import { ShowError } from "./components/ShowError";
 import { ChildWrapper } from "./showcases/mobx-react/ChildWrapper";
+import { GithubLink } from "./components/GithubLink";
 
 configure({
   enforceActions: "never",
@@ -21,15 +22,17 @@ function App() {
 
       <ul>
         <li>
-          <h2>Mobx</h2>
-          <Mobx />
+          <ShowMoreChildren name={"Mobx"}>
+            <Mobx />
+          </ShowMoreChildren>
         </li>
 
         <hr />
 
         <li>
-          <h2>Mobx react</h2>
-          <MobxReact />
+          <ShowMoreChildren name={"Mobx react"}>
+            <MobxReact />
+          </ShowMoreChildren>
         </li>
       </ul>
     </div>
@@ -43,14 +46,26 @@ const MobxReact = () => {
     <ul>
       <li>
         <ShowError>
-          <ComputedPropsAndState counter={counter} />
+          <ShowMoreChildren
+            link={
+              "https://github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx-react/ComputedPropsAndState.tsx"
+            }
+            name={"mobx-react computed"}
+          >
+            <ComputedPropsAndState counter={counter} />
+          </ShowMoreChildren>
         </ShowError>
       </li>
 
       <hr />
 
       <li>
-        <ShowMoreChildren name={"mobx-react actions"}>
+        <ShowMoreChildren
+          link={
+            "https://github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx-react/ActionsProps.tsx"
+          }
+          name={"mobx-react actions"}
+        >
           <LazyComponent path={`showcases/mobx-react/ActionsProps`} />
         </ShowMoreChildren>
       </li>
@@ -58,7 +73,12 @@ const MobxReact = () => {
       <hr />
 
       <li>
-        <ShowMoreChildren name={"mobx-react actions"}>
+        <ShowMoreChildren
+          link={
+            "https://github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx-react/ChildWrapper.tsx"
+          }
+          name={"mobx-react actions"}
+        >
           <ChildWrapper counter={counter}>
             {({ counter }) => <div>Value is {counter.value}</div>}
           </ChildWrapper>
@@ -84,9 +104,16 @@ const Mobx = () => {
       </li>
       <hr />
 
-      <ShowMoreChildren name={"Override mobx"}>
-        <LazyComponent path={`showcases/mobx/OverrideMobx`} />
-      </ShowMoreChildren>
+      <>
+        <GithubLink
+          link={
+            "github.com/pro0255/mobx-showcases/blob/main/src/showcases/mobx/OverrideMobx.tsx"
+          }
+        />
+        <ShowMoreChildren name={"Override mobx"}>
+          <LazyComponent path={`showcases/mobx/OverrideMobx`} />
+        </ShowMoreChildren>
+      </>
     </ul>
   );
 };
